@@ -1,0 +1,16 @@
+{
+    "name": "max/oop",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Max",
+            "email": "kalagur11@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {"App\\": "app"}
+    }
+}
