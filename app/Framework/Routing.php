@@ -9,21 +9,6 @@ class Routing
 
     private $routes = [];
 
-    public static function init() {
-
-        static $instance;
-        if( $instance ) return $instance;
-
-        try {
-            $instance = new Routing;
-        }
-        catch(Exception $e) {
-            echo $e->getMessage();
-        }
-
-        return $instance;
-    }
-
     private function __construct() {
 
         try {
@@ -33,6 +18,15 @@ class Routing
         catch( Exception $e ) {
             echo $e->getMessage();
         }
+    }
+
+    public static function init() {
+
+        static $instance;
+        if( $instance ) return $instance;
+
+        $instance = new Routing;
+        return $instance;
     }
 
     public function getCurrRouteHandler()
@@ -75,5 +69,9 @@ class Routing
         return true;
     }
 
-
+    public static function getRouteArgs()
+    {
+        $uriSections = explode('?', $_SERVER['REQUEST_URI'], 2);
+        return array_filter(explode( '/', $uriSections[0] ));
+    }
 }

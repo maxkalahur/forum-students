@@ -11,14 +11,10 @@ class Config
     public static function init() {
 
         static $instance;
+
         if( $instance ) return $instance;
 
-        try {
-            $instance = new Config;
-        }
-        catch(Exception $e) {
-            echo $e->getMessage();
-        }
+        $instance = new Config;
 
         return $instance;
     }

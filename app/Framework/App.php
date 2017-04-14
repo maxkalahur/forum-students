@@ -1,11 +1,9 @@
 <?php
 namespace App\Framework;
 
-use App\Framework\Config;
-use App\Framework\Routing;
+use App\Framework\{Config, Routing};
 use App\Database\DB;
 use App\Services\ServicesContainer;
-use App\Services\Validator\Validator;
 
 class App
 {
@@ -29,7 +27,7 @@ class App
             $config->get('db.database')
         );
 
-        if( $routeHandler = (Routing::init())->getCurrRouteHandler() ) {
+        if( $routeHandler = Routing::init()->getCurrRouteHandler() ) {
             $servicesContainer = new ServicesContainer();
             $className = 'App\Controllers\\'. $routeHandler[0];
             $methodName = $routeHandler[1];
