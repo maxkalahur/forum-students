@@ -13,7 +13,6 @@ abstract class Controller
         $this->config = $config;
         $this->servicesContainer = $servicesContainer;
 
-
     }
 
 }

@@ -21,6 +21,7 @@ class AuthController extends Controller
         }
         View::show('login');
     }
+
     public function registration()
     {
         $postForm = isset($_POST['reg']) ? $_POST['reg'] : null;
@@ -30,25 +31,10 @@ class AuthController extends Controller
             $user->setName($postForm['name']);
             $user->setEmail($postForm['email']);
             $user->setPassword(md5($postForm['password']));
-            var_dump($user);
-
-            $validation = new Validator();
-            $validateCheck = $validation->validation(
-                ['name'=>['require', 'string'],
-                'email'=>['email', 'require'],
-                'password'=>['require', 'string']],
-                ['name'=>$postForm['name'], 'email'=>$postForm['email'], 'password'=>$postForm['password']]);
-            if ($validateCheck){
-                $user = new User();
-                $user->setName($postForm['name']);
-                $user->setEmail($postForm['email']);
-                $user->setPassword(md5($postForm['password']));
-                Auth::register($user);
-            }
+            Auth::register($user);
 
         }
-        include "app/Views/header.html.php";
-        include "app/Views/registration.html.php";
+
     }
 
     public function logout(){

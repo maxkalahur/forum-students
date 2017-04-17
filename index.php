@@ -53,19 +53,19 @@ $app->run();
 //$obj = new a;
 //$obj->foo();
 //$obj->abc;
-
-
-class b {
-
-    public $time;
-
-    public function __construct( $time )
-    {
-        $this->time = $time;
-    }
-}
-
-//$c = new b;
-//$c->time = "12:00";
-
-$c = new b( "12:00" );
+//
+//
+//class b {
+//
+//    public $time;
+//
+//    public function __construct( $time )
+//    {
+//        $this->time = $time;
+//    }
+//}
+//
+////$c = new b;
+////$c->time = "12:00";
+//
+//$c = new b( "12:00" );

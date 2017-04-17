@@ -7,13 +7,9 @@ use App\Models\User;
 
 class Auth implements AuthInterface
 {
-
     private static $user;
 
     public static function login( Array $credentials ){
-
-        $credentials['email'] ;
-        $credentials['pass'];
 
         $arguments = [$credentials['email'],md5($credentials['pass'])];
 
@@ -32,13 +28,14 @@ class Auth implements AuthInterface
         unset($_SESSION['user_id']);
     }
 
-    public static function register( User $user ){
+    public static function register( User $user ) {
         $user->save();
     }
 
     public static function getLoggedUser(){
         return self::$user;
     }
+
     public static function CheckAuthSession(){
 
     }

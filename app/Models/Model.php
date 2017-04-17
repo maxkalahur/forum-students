@@ -43,6 +43,7 @@ abstract class Model implements ModelInterface
 
         return $res ;
     }
+
     public static function staticHydrate(Array $data) {
         $res = [];
         foreach( $data as $item ) {
@@ -88,10 +89,14 @@ abstract class Model implements ModelInterface
 
         if( substr( $name, 0, 5 ) === "getBy" ) {
             $var = lcfirst(substr($name, 5));
-            return $model->hydrate(DB::select("SELECT * FROM $model->table WHERE `$var`=?",[$args[0]]));
+            return $model->hydrate(
+                DB::select("SELECT * FROM $model->table 
+                  WHERE `$var`=?", [$args[0]])
+            );
         }
 
     }
+
     public function save()
     {
         $vars = get_object_vars($this);
@@ -110,7 +115,7 @@ abstract class Model implements ModelInterface
             $this->setId(DB::getLastId());
         }
         else {
-            DB::update("UPDATE $this->table SET $query where `lot_id`='{$update['lot_id']}'");
+            DB::update("UPDATE $this->table SET $query where `id`='{$update['id']}'");
         }
 
 
