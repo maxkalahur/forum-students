@@ -1,4 +1,9 @@
-<h1><?= $data['topic']->getTitle() ?></h1>
+<h1>
+    <a href="/section/<?= $data['section']->getSlug() ?>">
+        <?= $data['section']->getTitle() ?></a>
+    >
+    <?= $data['topic']->getTitle() ?>
+</h1>
 
 <form action="">
     <textarea name="message" id="" cols="30" rows="3"></textarea>

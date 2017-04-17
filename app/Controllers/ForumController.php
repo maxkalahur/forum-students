@@ -18,11 +18,12 @@ class ForumController extends Controller
         $sectionSlug = $routeData[2];
         $topicId = $routeData[3];
 
+        $section = Section::getBySlug( $sectionSlug )[0];
         $topic = Topic::get( $topicId )[0];
         $posts = Post::getByTopic_id( $topicId );
 
         View::show("topic",
-            ['posts' => $posts, 'topic' => $topic]
+            ['section' => $section,'posts' => $posts, 'topic' => $topic]
         );
     }
 
