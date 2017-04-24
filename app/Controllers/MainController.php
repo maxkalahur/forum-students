@@ -14,10 +14,6 @@ class MainController extends Controller
 
         $sections = Section::all();
 
-        $data = Section::staticHydrate( $sections );
-
-        var_dump( $data );
-
         View::show("main", ['sections' => $sections]);
     }
 

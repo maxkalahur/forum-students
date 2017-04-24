@@ -11,13 +11,8 @@ class Routing
 
     private function __construct() {
 
-        try {
-            include __DIR__ . '/../routes.php';
-            $this->routes = $_routes;
-        }
-        catch( Exception $e ) {
-            echo $e->getMessage();
-        }
+        include __DIR__ . '/../routes.php';
+        $this->routes = $_routes;
     }
 
     public static function init() {

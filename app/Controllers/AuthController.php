@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Controllers\Controller;
 use App\Database\DB;
 use App\Models\User;
-use App\Auth\Auth;
+use App\Framework\Auth\Auth;
 use App\Framework\View;
 
 class AuthController extends Controller
@@ -50,9 +50,9 @@ class AuthController extends Controller
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $ret = curl_exec($ch);
+        $res = curl_exec($ch);
         curl_close($ch);
-        parse_str($ret, $vars);
+        parse_str($res, $vars);
 
         $accessToken =  $vars['access_token'];
 
