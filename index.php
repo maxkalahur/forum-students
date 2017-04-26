@@ -11,7 +11,7 @@ session_start();
     
 define('APP_MODE', 'DEBUG');
 define('SITE_ROOT', realpath(dirname(__FILE__)));
-require __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/vendor/autoload.php';
 
 //spl_autoload_register( function ($class_name) {
 //    var_dump(  $class_name );
