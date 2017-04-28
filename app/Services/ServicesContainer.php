@@ -1,15 +1,29 @@
 <?php
 namespace App\Services;
 
+trait LogTrait {
+
+    private $test;
+
+    private function log( $error ) {
+       ///...
+    }
+}
+
 
 class ServicesContainer
 {
+    use LogTrait;
+
     private $servicesMapping;
 
     public function __construct() {
         $this->servicesMapping = [
-            'emailSender' => 'App\Services\emailSender\emailSender',
+            'emailSender' => 'App\Services\EmailSender\EmailSender',
         ];
+
+        $this->log('error here!');
+        $this->test;
     }
 
     public function __get($name) {

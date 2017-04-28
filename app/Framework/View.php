@@ -1,9 +1,15 @@
 <?php
 namespace App\Framework;
+
+
+
 class View
 {
+    public static $config;
 
     public static function show( $templateName, $data = [] ) {
+
+        self::$config->get('vk_info');
 
         include 'app/Views/header.view.php';
 

@@ -24,7 +24,7 @@ class EmailSender
      * @param $message
      * @return int
      */
-    public function send( $config, $email, $subject, $message ) {
+    public function send( Config $config, $email, $subject, $message ) {
 
         if( !self::$phpMailer ) {
 
@@ -66,11 +66,11 @@ class EmailSender
                             </div>';
 
         if(!$mail->send()) {
-            return 0;
+//            return 0;
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            return 1;
+//            return 1;
             echo 'Message has been sent';
         }
     }
